@@ -6,16 +6,21 @@ createApp({
     data() {
         return {
             message: 'Template HTML CSS Vue',
+            email:[],
         };
     },
     methods:{
 
     },
     mounted(){
-        axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
-        .then(function (email) {
-            console.log(email.data.response, typeof email.data.response)
-        });
+        //ciclo per creare 10 email casuali tramite chiamata di api random mail
+        for (let i = 0; i < 10; i++) {
+            axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
+            .then((objEmail) =>{
+                this.email.push(objEmail.data.response);    
+                console.log(objEmail.data.response, typeof objEmail.data.response)
+            });
+        }
 
     }
   // Monto l'istanza di Vue in pagina
