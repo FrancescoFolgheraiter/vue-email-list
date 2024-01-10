@@ -12,6 +12,10 @@ createApp({
 
     },
     mounted(){
+        axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
+        .then(function (email) {
+            console.log(email.data.response, typeof email.data.response)
+        });
 
     }
   // Monto l'istanza di Vue in pagina
